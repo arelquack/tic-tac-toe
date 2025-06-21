@@ -178,4 +178,4 @@ Contributions are welcome!
 
 ---
 
-**Developed by \Arel Zandra** – as a showcase of clean code, algorithmic thinking, and software engineering best practices in C.
+**Developed by Arel Zandra** – as a showcase of clean code, algorithmic thinking, and software engineering best practices in C.
