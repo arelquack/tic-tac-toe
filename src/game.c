@@ -16,6 +16,8 @@ void initialize_game(GameState *state, int mode) {
 void play_game(GameState *state) {
     while (true) {
         print_board(state);
+
+        // === Player vs Player Mode ===
         if (state->mode == 1) {
             if (state->is_player_turn) {
                 printf("Giliran Pemain 1 (X): \n");
@@ -25,6 +27,8 @@ void play_game(GameState *state) {
                 player_move(state, AI);
             }
         }
+
+        // === Player vs AI Mode ===
         else {
             if (state->is_player_turn) {
                 printf("Kamu (X): \n");
@@ -32,9 +36,11 @@ void play_game(GameState *state) {
             } else {
                 printf("AI (O): \n");
                 ai_move(state);
-                sleep(1);
+                sleep(1); // Add delay for realism
             }
         }
+
+        // ==== Check for winner or draw ===
         int winner = check_winner(state);
         if (winner) {
             print_board(state);
@@ -45,11 +51,15 @@ void play_game(GameState *state) {
             }
             return;
         }
+
+        // === Check for draw ===
         if (is_board_full(state)) {
             print_board(state);
             printf("SERI!\n");
             return;
         }
+
+        // === Switch turn ===
         state->is_player_turn = !state->is_player_turn;
     }
 }
